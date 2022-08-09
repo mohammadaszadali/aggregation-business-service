@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bmp-aggregation-bs-svc
+  namespace: dtag-dev
+  labels:
+    app: bmp-aggregation-bs
+    version: latest
+spec:
+  type: NodePort
+  externalTrafficPolicy: Cluster
+  ports:
+  - port: 18917
+    nodePort: 30917
+    targetPort: 9005
+    protocol: TCP
+  selector:
+    app: bmp-aggregation-bs
+    version: latest

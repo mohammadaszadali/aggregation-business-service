@@ -1,0 +1,45 @@
+adduser: /bsi/5gslices/v1/addContact
+coreCreateCustomer: /bsi/CustomerManagement/v1/single
+coreCustomer:
+    url: http://172.29.1.101
+datg:
+    email: /bsi/5gslices/v1/getByEmailId
+dtagCreateCustomer: /bsi/5gslices/v1/newcustomer
+dtagCustomer:
+    url: http://172.29.1.106:30906
+dtagGetCustomer: /bsi/5gslices/v1/getCustomers
+keycloak:
+    auth-server-url: http://172.29.1.101:8287/auth
+    bearer-only: true
+    credentials:
+        secret: 5c41361c-eaca-4519-915f-7086bf8ee7ad
+    mail:
+        url: http://172.29.1.106:30955/emailservice/v1/mailTempPassword
+    public-client: true
+    realm: UserManagement
+    resource: UserManagement
+    securityConstraints:
+    - null
+    -   authRoles:
+        - user
+        securityCollections:
+        -   name: user
+            patterns:
+            - /user/*
+    userRepre:
+        url: http://172.29.1.106:30955/keycloak/updateUserName
+keyclockurl: http://172.29.1.106:30955/keycloak/create
+logging:
+    level:
+        org:
+            keycloak: TRACE
+resetpwdkeyclockurl: http://172.29.1.106:30955/keycloak/reset
+server:
+    port: 9005
+spring:
+    data:
+        mongodb:
+            database: BMP_SKUID_1
+            host: 172.29.1.114
+            port: 27017
+userlogin: /bsi/5gslices/v1/SignIn
