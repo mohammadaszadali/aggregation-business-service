@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8:latest
-ADD target/bmp-aggregation-bs-1.0.jar bmp-aggregation-bs.jar
-RUN sh -c 'touch /bmp-aggregation-bs.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/bmp-aggregation-bs.jar"]
+FROM openjdk:8
+RUN mkdir apps
+COPY target/bmp-aggregation-bs-1.0-SNAPSHOT.jar apps/
+ENTRYPOINT ["java","-jar", "apps/bmp-aggregation-bs-1.0-SNAPSHOT.jar"]
