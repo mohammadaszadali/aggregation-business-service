@@ -27,7 +27,7 @@ spec:
 ---
 
 apiVersion: v1
-kind: SErvice
+kind: Service
 metadata:
   name: aggregation-service
   namespace: dev-env
