@@ -1,8 +1,8 @@
 pipeline {
 agent any;
-  tools {
+ /* tools {
     maven 'mavendev'
-  }
+  } */
   stages {
     stage("Code checkout"){
       steps {
